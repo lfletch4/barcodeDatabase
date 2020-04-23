@@ -1,0 +1,30 @@
+CREATE SCHEMA "PayByBarCode" AUTHORIZATION postgres;
+
+COMMENT ON SCHEMA "PayByBarCode" IS 'standard public schema';
+
+CREATE TABLE "PayByBarCode"."Invoice" (
+	tid varchar NOT NULL,
+	"date" varchar NOT NULL,
+	vid varchar NOT NULL,
+	amount varchar NOT NULL,
+	description varchar NULL,
+	customerid varchar NOT NULL
+);
+
+CREATE TABLE "PayByBarCode".customer (
+	customerid varchar NOT NULL,
+	firstname varchar NOT NULL,
+	lastname varchar NOT NULL,
+	email varchar NOT NULL,
+	CONSTRAINT customer_pk PRIMARY KEY (customerid)
+);
+
+CREATE TABLE "PayByBarCode".vendor (
+	vid varchar NOT NULL,
+	firstname varchar NOT NULL,
+	lastname varchar NOT NULL,
+	email varchar NOT NULL,
+	"password" varchar NOT NULL,
+	businessname varchar NOT NULL,
+	CONSTRAINT vendor_pk PRIMARY KEY (vid)
+);
