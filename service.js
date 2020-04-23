@@ -10,9 +10,11 @@ const sequelize = new Sequelize('PayByBarcode', 'postgres', 'Usm605269!',{
     max: 9,
     min: 0,
     acquire: 30000,
+    database: 'api',
     idle: 10000
   }
 });
+//verify connection
 sequelize.authenticate().then(() => {
     console.log('Connection has been established successfully.');
   })
@@ -23,14 +25,13 @@ sequelize.authenticate().then(() => {
 const models ={
     Vendor: sequelize.import ('./vendor'),
     Customer: sequelize.import ('./customer'),
-    Transactions: sequelize.import ('./transactions'),
+    Transactions: sequelize.import ('./invoice'),
 
 };
-//sequelize.Transactions.import {  } from "module";
-  
-Object.keys(models).forEach((transactions) => {
+
+Object.keys(models).forEach((invoice) => {
   if ('associate' in models[vendor]) {
-    models[transactions].associate(models);
+    models[invoice].associate(models);
   }
 });
 
@@ -38,3 +39,4 @@ models.sequelize = sequelize;
 models.Sequelize = Sequelize;
 
 module.exports = models;
+ 

@@ -31,11 +31,11 @@ module.exports = function customer(Sequelize) {
    
        },    
            
-       customerID: {
+      /*  customerID: {
            type: DataTypes.STRING,
            unique: true,
            allowNull: false,
-       },
+       }, */
     }, {//password hash-bcrypt
         freezeTableName: true,
         instanceMethods: {

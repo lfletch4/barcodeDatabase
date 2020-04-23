@@ -8,18 +8,18 @@ module.exports = function transactions(Sequelize) {
 
    
        },
-       /* vendorID: {
+       vendorID: {
            type: DataTypes.STRING,
            unique: false,
            allowNull: false,
 
    
-       }, */    
+       },    
        customerId: {
            type: DataTypes.STRING,
            unique: true,
            allowNull: false,
- 
+
    
        },    
        date: {

@@ -43,11 +43,11 @@ module.exports = function vendor(Sequelize) {
 
     },
 
-    vendorID: {
+    /* vendorID: {
         type: DataTypes.STRING,
         unique: true,
         allowNull: false,
-    },
+    }, */
 
   }, {//password hash-bcrypt
       freezeTableName: true,
