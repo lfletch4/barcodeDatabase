@@ -25,12 +25,13 @@ sequelize.authenticate().then(() => {
 const models ={
     Vendor: sequelize.import ('./vendor'),
     Customer: sequelize.import ('./customer'),
-    Transactions: sequelize.import ('./invoice'),
+    Invoice: sequelize.import ('./invoice'),
 
 };
 
 Object.keys(models).forEach((invoice) => {
-  if ('associate' in models[vendor]) {
+  if (('associate' in models[vendor]) ||
+  ('associate' in models [vendor])) {
     models[invoice].associate(models);
   }
 });

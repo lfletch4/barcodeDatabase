@@ -61,7 +61,9 @@ module.exports = function vendor(Sequelize) {
       }
   });
 
-  Vendor.hasMany(models.Transactions);
+  Vendor.associate = models =>{
+    Vendor.hasMany(models.Invoice);
+};
   
   return Vendor;
 };

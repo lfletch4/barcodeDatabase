@@ -1,6 +1,6 @@
 module.exports = function transactions(Sequelize) {
-    //'invoice' table
-    const Invoice = sequelize.define('invoice', {
+    //'transactions' table
+    const Transactions = sequelize.define('transactions', {
        tid: {
            type: DataTypes.STRING,
            unique: false,
@@ -8,18 +8,18 @@ module.exports = function transactions(Sequelize) {
 
    
        },
-       /* vendorID: {
+       vendorID: {
            type: DataTypes.STRING,
            unique: false,
            allowNull: false,
 
    
-       }, */    
+       },    
        customerId: {
            type: DataTypes.STRING,
            unique: true,
            allowNull: false,
- 
+
    
        },    
        date: {
@@ -44,9 +44,9 @@ module.exports = function transactions(Sequelize) {
 
      });
    
-        Invoice.belongsTo(Vendor);
-        Invoice.belongsTo(Customer);
+        Transactions.belongsTo(Vendor);
+        Transaction.belongsTo(Customer);
      
    
-     return Invoice;
+     return Transactions;
    };

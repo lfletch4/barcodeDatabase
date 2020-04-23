@@ -48,7 +48,9 @@ module.exports = function customer(Sequelize) {
         }
 
      });
-     Customer.hasMany(models.Transactions);
+     Customer.associate = models =>{
+     Customer.hasMany(models.Invoice);
+     };
 
    /*  Customer.sync({ force: true }).then(() => {
         //create table
