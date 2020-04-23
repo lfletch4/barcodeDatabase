@@ -1,0 +1,41 @@
+CREATE TABLE invoice (
+	invoice_id SERIAL PRIMARY KEY,
+	create_ts timestamp NOT NULL default current_timestamp,
+	vendor_id serial NOT NULL,
+	amount int NOT NULL,
+	description varchar(100),
+	customer_id serial NOT NULL,
+  FOREIGN KEY (vendor_id) REFERENCES vendor (vendor_id),
+  FOREIGN KEY (customer_id) REFERENCES customer (customer_id));
+
+CREATE TABLE customer (
+	customer_id serial PRIMARY KEY,
+	first_name varchar(25) NOT NULL,
+	last_name varchar(25) NOT NULL,
+	email varchar(50) NOT NULL,
+	create_ts timestamp not null default CURRENT_TIMESTAMP
+);
+
+CREATE TABLE vendor (
+	vendor_id SERIAL PRIMARY KEY,
+	biz_name varchar(25) NOT NULL,
+	email varchar(50) NOT NULL,
+	address varchar(50) not null,
+	create_ts timestamp not null default current_timestamp)
+	
+	
+
+--example inserts
+	
+	
+insert into customer (first_name, last_name, email)
+	values ('leeland', 'fletcher', 'leeland_fletcher@protonmail.com');
+
+insert into vendor (biz_name, email, address)
+values ('Jacks BBQ', 'jacksbbq@gmail.com', '999 teller rd, rogers, ar')
+
+select * from customer --customer id is 1
+select * from vendor --vendor id is 1
+
+insert into invoice (vendor_id, amount, description, customer_id) 
+values (1, 5.98, 'toilet paper', 1)
